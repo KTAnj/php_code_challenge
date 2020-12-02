@@ -13,6 +13,13 @@ use Illuminate\Http\JsonResponse;
 
 class BetController extends Controller
 {
+    /**
+     * @bodyParam player_id int player id in the system
+     * @bodyParam stake_amount string amount of money player wants to bet
+     * @bodyParam selections array selection (events) on which player wants to bet
+     * @param BetRequest $request
+     * @return JsonResponse
+     */
     public function store(BetRequest $request)
     {
         $data = $request->all();
