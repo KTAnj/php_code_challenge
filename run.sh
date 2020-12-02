@@ -20,12 +20,13 @@ docker-compose up -d ${name} mysql
 wait
 docker-compose up -d ${name} php
 wait
-docker exec -i smart_betting_php_1 php /var/www/html/artisan cache:clear
-docker exec -i smart_betting_php_1 php /var/www/html/artisan config:clear
-docker exec -i smart_betting_php_1 php /var/www/html/artisan migrate --force
-docker exec -i smart_betting_php_1 php /var/www/html/artisan route:clear
-docker exec -i smart_betting_php_1 php /var/www/html/artisan cache:clear
-docker exec -i smart_betting_php_1 php /var/www/html/artisan config:clear
+docker exec -i php_code_challenge_php_1 /var/www/html/composer.phar install
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan cache:clear
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan config:clear
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan migrate --force
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan route:clear
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan cache:clear
+docker exec -i php_code_challenge_php_1 php /var/www/html/artisan config:clear
 wait
 
 echo "All services are up.... Development server started: http://localhost:9088"
