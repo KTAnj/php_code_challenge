@@ -10,10 +10,27 @@ use App\BetSelections;
 use App\BalanceTransaction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\JsonResponse;
+use App\Repositories\PlayerRepositoryInterface;
 
 class BetController extends Controller
 {
+    protected $repository;
+
+   
+    public function __construct(PlayerRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function getPlayer($id)
+    {
+        $player = $this->repository->find($id);
+        return new JsonResponse($player, JsonResponse::HTTP_CREATED);
+    }
+
+
     /**
+     * save betting details
      * @bodyParam player_id int player id in the system
      * @bodyParam stake_amount string amount of money player wants to bet
      * @bodyParam selections array selection (events) on which player wants to bet
@@ -68,7 +85,7 @@ class BetController extends Controller
             DB::rollBack();
             return new JsonResponse(
                 ['errors' => ['code' => 0, 'message' => 'Unknown error']], 
-                JsonResponse::HTTP_CREATED
+                JsonResponse::HTTP_BAD_REQUEST
             );
         }
         return new JsonResponse(null, JsonResponse::HTTP_CREATED);
