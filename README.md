@@ -58,4 +58,4 @@ start a development server at http://localhost:8000:
 ## Testing the API
 
 I’ve created an api document in postman and I published it, click on the link below to check that document.
-[Link to view API document](https://dark-crater-5703.postman.co/collections/8491210-7c9bb9bf-c573-49bb-aadd-bc06cde728cd/publish?workspace=2805aa49-52cc-4b8d-8036-6a1911927aec)
+[Link to view API document](https://documenter.getpostman.com/view/8491210/TVmMex9W)
