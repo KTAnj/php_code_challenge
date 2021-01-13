@@ -15,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('/bet', 'BetController');
-Route::get('/player/{id}', 'BetController@getPlayer');
